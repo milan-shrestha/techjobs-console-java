@@ -107,7 +107,7 @@ public class JobData {
             while (it.hasNext()) {
                 Map.Entry<String, String> set = (Map.Entry<String, String>) it.next();
 
-                String aValue = row.get(set.getKey());
+                String aValue = (row.get(set.getKey())).toLowerCase();
 
                  if (aValue.contains(value)) {
                     if (!jobs.contains(row)) {
