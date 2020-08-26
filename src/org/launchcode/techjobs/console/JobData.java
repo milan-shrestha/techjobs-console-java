@@ -41,6 +41,8 @@ public class JobData {
             }
         }
 
+        //Sort the list of values alphabetically
+        Collections.sort(values);
         return values;
     }
 
