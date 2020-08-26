@@ -7,9 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -81,6 +79,43 @@ public class JobData {
             }
         }
 
+        return jobs;
+    }
+
+    /**
+     * Returns results of search the jobs data by value, using
+     * inclusion of the search term.
+     *
+     * For example, searching for term "JavScript" will include results
+     * with jobs with "JavaScript" mentioned on their postings.
+     *
+     * @param value User input Value to search for
+     * @return List of all jobs that contains the user specified search Value
+     */
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+
+            Iterator<Map.Entry<String, String>> it = row.entrySet().iterator();
+
+            // iterating every set of entry in the HashMap.
+
+            while (it.hasNext()) {
+                Map.Entry<String, String> set = (Map.Entry<String, String>) it.next();
+
+                String aValue = row.get(set.getKey());
+
+                 if (aValue.contains(value)) {
+                    if (!jobs.contains(row)) {
+                        jobs.add(row);
+                    }
+                }
+            }
+        }
         return jobs;
     }
 
