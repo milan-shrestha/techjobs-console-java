@@ -117,7 +117,7 @@ public class JobData {
             // iterating every set of entry in the HashMap.
 
             while (it.hasNext()) {
-                Map.Entry<String, String> set = (Map.Entry<String, String>) it.next();
+                Map.Entry<String, String> set = it.next();
 
                 String aValue = (row.get(set.getKey())).toLowerCase();
 
