@@ -46,12 +46,22 @@ public class JobData {
         return values;
     }
 
+
+    /**
+     * Fetch list of all jobs from loaded data
+     *
+     * Make a copy of allJobs to jobsList
+     * @return List of all jobs stored in jobsList
+     */
     public static ArrayList<HashMap<String, String>> findAll() {
 
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        //Make a copy of allJobs
+        ArrayList<HashMap<String, String>> jobsList= new ArrayList<>(allJobs);
+
+        return jobsList;
     }
 
     /**
